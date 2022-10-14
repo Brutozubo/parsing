@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 url = 'https://mfd.ru/currency/?currency=USD'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'lxml')
-quotes = soup.find_all('span', class_='mfd-u' 'mdf-d')
-tags = soup.find_all('td', class_='tags')
+quotes = soup.find_all('span', attrs={"class":{"mfd-u","mfd-d"}})
+tags = soup.find_all('td')
 
 for i in range(0, len(quotes)):
     print(quotes[i].text)
